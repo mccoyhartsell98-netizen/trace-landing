@@ -523,9 +523,51 @@ footer{padding:28px 52px;border-top:1px solid var(--border);display:flex;align-i
 .cta-heading.in .cta-word:nth-child(5){transition-delay:0.4s;}
 .cta-heading.in .cta-word:nth-child(6){transition-delay:0.5s;}
 .cta-btn{animation:none;}
+/* ── SIGNUP SECTION ── */
+.signup-wrap{padding:100px 52px;border-top:1px solid var(--border);background:var(--bg2);}
+.signup-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;max-width:1100px;margin:0 auto;}
+.signup-kicker{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+.signup-heading{font-family:var(--head);font-size:clamp(32px,4.5vw,56px);font-weight:800;letter-spacing:-0.02em;line-height:1.05;margin-bottom:16px;}
+.signup-desc{font-family:var(--body);font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:36px;max-width:400px;}
+.signup-plans{display:flex;flex-direction:column;gap:10px;}
+.signup-plan{
+  background:var(--bg3);border:1px solid var(--border);border-radius:10px;
+  padding:16px 20px;cursor:pointer;position:relative;
+  transition:border-color 0.2s,background 0.2s;
+}
+.signup-plan:hover{border-color:var(--border2);}
+.signup-plan.active{border-color:var(--accent);background:rgba(79,142,247,0.06);}
+.sp-badge{
+  display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--accent);background:rgba(79,142,247,0.12);
+  border:1px solid rgba(79,142,247,0.25);padding:2px 8px;border-radius:100px;
+  margin-bottom:6px;
+}
+.sp-name{font-family:var(--head);font-size:14px;font-weight:700;color:var(--text);margin-bottom:2px;}
+.sp-price{font-family:var(--head);font-size:22px;font-weight:800;color:var(--accent);line-height:1;}
+.sp-price span{font-size:12px;font-weight:400;color:var(--text3);}
+.sp-desc{font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:0.04em;margin-top:4px;}
+.signup-card{
+  background:var(--bg);border:1px solid var(--border2);border-radius:16px;
+  padding:40px;position:relative;overflow:hidden;
+}
+.signup-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);}
+.signup-card-title{font-family:var(--head);font-size:20px;font-weight:700;margin-bottom:28px;color:var(--text);}
+.signup-error{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:#f87171;font-size:13px;padding:10px 14px;border-radius:7px;margin-bottom:20px;font-family:var(--body);}
+.signup-success{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25);color:#4ade80;font-size:13px;padding:10px 14px;border-radius:7px;margin-bottom:20px;font-family:var(--body);}
+.signup-field{display:flex;flex-direction:column;gap:7px;margin-bottom:18px;}
+.signup-field label{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);display:flex;align-items:center;gap:8px;}
+.signup-hint{font-size:9px;color:var(--text3);text-transform:none;letter-spacing:0;}
+.signup-field input{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px 14px;font-size:14px;font-family:var(--body);color:var(--text);outline:none;transition:border-color 0.2s,background 0.2s;width:100%;}
+.signup-field input::placeholder{color:rgba(255,255,255,0.2);}
+.signup-field input:focus{border-color:rgba(79,142,247,0.5);background:rgba(79,142,247,0.04);}
+.signup-btn{width:100%;background:var(--accent);color:#fff;border:none;border-radius:8px;padding:14px;font-size:14px;font-weight:500;font-family:var(--body);cursor:pointer;transition:opacity 0.2s,transform 0.2s,box-shadow 0.2s;margin-top:8px;}
+.signup-btn:hover:not(:disabled){opacity:0.88;transform:translateY(-1px);box-shadow:0 8px 24px rgba(79,142,247,0.25);}
+.signup-btn:disabled{opacity:0.5;cursor:not-allowed;}
+.signup-login{font-family:var(--body);font-size:12px;color:var(--text3);text-align:center;margin-top:16px;}
+.signup-login a{color:var(--accent);text-decoration:none;}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
-</style>
 </style>
 </head>
 <body>
@@ -549,7 +591,8 @@ footer{padding:28px 52px;border-top:1px solid var(--border);display:flex;align-i
     <li><a href="#features">Features</a></li>
     <li><a href="#how">How It Works</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#demo" class="nav-cta">Get Early Access</a></li>
+    <li><a href="https://app.traceoperations.com" class="nav-cta" style="margin-right:8px;">Log In</a></li>
+    <li><a href="#signup" class="nav-cta">Sign Up</a></li>
   </ul>
 </nav>
 
@@ -558,7 +601,7 @@ footer{padding:28px 52px;border-top:1px solid var(--border);display:flex;align-i
   <h1 class="hero-h">We Track.<br><em>You Improve.</em></h1>
   <p class="hero-sub">Stop losing jobs on the floor. TRACE gives your print shop a live view of every job, every lane, and every move — from first scan to final delivery.</p>
   <div class="hero-acts">
-    <a href="#demo" class="btn-p">Get Early Access →</a>
+    <a href="#signup" class="btn-p">Get Started →</a>
     <a href="#about" class="btn-s">See How It Works</a>
   </div>
   <div class="hero-metrics">
@@ -689,7 +732,7 @@ footer{padding:28px 52px;border-top:1px solid var(--border);display:flex;align-i
         <li class="p-tier-no"><span class="no">✕</span>Floor audit</li>
         <li class="p-tier-no"><span class="no">✕</span>Priority support</li>
       </ul>
-      <a href="/login" class="p-tier-btn">Get Started</a>
+      <a href="#signup" class="p-tier-btn">Get Started</a>
     </div>
 
     <!-- PRO (featured) -->
@@ -710,7 +753,7 @@ footer{padding:28px 52px;border-top:1px solid var(--border);display:flex;align-i
         <li><span class="chk">✓</span>Full audit log</li>
         <li><span class="chk">✓</span>Priority support</li>
       </ul>
-      <a href="/login" class="p-tier-btn p-tier-btn-featured">Get Started</a>
+      <a href="#signup" class="p-tier-btn p-tier-btn-featured">Get Started</a>
     </div>
 
     <!-- PREMIUM -->
@@ -730,21 +773,78 @@ footer{padding:28px 52px;border-top:1px solid var(--border);display:flex;align-i
         <li><span class="chk">✓</span>Early feature access</li>
         <li><span class="chk">✓</span>Dedicated account manager</li>
       </ul>
-      <a href="/login" class="p-tier-btn">Get Started</a>
+      <a href="#signup" class="p-tier-btn">Get Started</a>
     </div>
 
   </div>
 </div>
 
-<!-- CTA: massive scaling headline -->
+<!-- SIGNUP SECTION -->
+<div class="signup-wrap" id="signup">
+  <div class="signup-inner">
+    <div class="signup-left">
+      <p class="kicker signup-kicker">// Get Started</p>
+      <h2 class="signup-heading">Your floor.<br>Under control.<br><span style="color:var(--accent)">Today.</span></h2>
+      <p class="signup-desc">Create your workspace in minutes. No IT team. No lengthy onboarding. Just pick a plan and go.</p>
+      <div class="signup-plans">
+        <div class="signup-plan" data-plan="starter" onclick="selectPlan('starter')">
+          <div class="sp-name">Starter</div>
+          <div class="sp-price">$250<span>/mo</span></div>
+          <div class="sp-desc">20 users · 1 warehouse · 15 locations</div>
+        </div>
+        <div class="signup-plan active" data-plan="pro" onclick="selectPlan('pro')">
+          <div class="sp-badge">Popular</div>
+          <div class="sp-name">Pro</div>
+          <div class="sp-price">$650<span>/mo</span></div>
+          <div class="sp-desc">250 users · 3 warehouses · 150 locations</div>
+        </div>
+        <div class="signup-plan" data-plan="premium" onclick="selectPlan('premium')">
+          <div class="sp-name">Premium</div>
+          <div class="sp-price">$1,200<span>/mo</span></div>
+          <div class="sp-desc">Unlimited everything</div>
+        </div>
+      </div>
+    </div>
+    <div class="signup-right">
+      <div class="signup-card">
+        <div class="signup-card-title">Create your workspace</div>
+        <div id="signup-error" class="signup-error" style="display:none;"></div>
+        <div id="signup-success" class="signup-success" style="display:none;">Account created! Taking you to your dashboard...</div>
+        <form id="signup-form" onsubmit="handleSignup(event)">
+          <div class="signup-field">
+            <label>Shop Name</label>
+            <input id="s-orgname" type="text" placeholder="CT Commercial Paper" required />
+          </div>
+          <div class="signup-field">
+            <label>Shop ID <span class="signup-hint">used to log in (no spaces)</span></label>
+            <input id="s-slug" type="text" placeholder="ct-paper" required pattern="[a-z0-9\-]+" />
+          </div>
+          <div class="signup-field">
+            <label>Email</label>
+            <input id="s-email" type="email" placeholder="you@yourshop.com" required />
+          </div>
+          <div class="signup-field">
+            <label>Password</label>
+            <input id="s-password" type="password" placeholder="••••••••" required minlength="8" />
+          </div>
+          <input type="hidden" id="s-plan" value="pro" />
+          <button type="submit" class="signup-btn" id="signup-btn">Create Account →</button>
+          <p class="signup-login">Already have an account? <a href="https://app.traceoperations.com">Log In</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
 <div class="cta-wrap" id="demo">
   <div class="cta-scale-section">
     <p class="cta-kicker">Ready to run a tighter floor?</p>
     <h2 class="cta-scale-heading">Your shop deserves<br>better than a clipboard.</h2>
-    <p class="cta-subtext">Join the early access list. Be first in, get the best rate.</p>
+    <p class="cta-subtext">Join hundreds of print shops already running tighter floors with TRACE.</p>
     <div class="cta-btn-wrap">
-      <a href="mailto:hello@traceoperations.com" class="btn-p cta-btn">Request Early Access →</a>
-      <p class="cta-note">No spam. Just a heads up when TRACE is ready for your floor.</p>
+      <a href="#signup" class="btn-p cta-btn">Get Started →</a>
+      <p class="cta-note">Already have an account? <a href="https://app.traceoperations.com" style="color:var(--accent);">Log In</a></p>
     </div>
   </div>
 </div>
@@ -1147,6 +1247,78 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ── SIGNUP ──
+let selectedPlan = 'pro';
+
+function selectPlan(plan) {
+  selectedPlan = plan;
+  document.getElementById('s-plan').value = plan;
+  document.querySelectorAll('.signup-plan').forEach(el => {
+    el.classList.toggle('active', el.getAttribute('data-plan') === plan);
+  });
+}
+
+// Auto-format slug from shop name
+document.getElementById('s-orgname')?.addEventListener('input', (e) => {
+  const slugEl = document.getElementById('s-slug');
+  if (!slugEl._touched) {
+    slugEl.value = e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+});
+
+document.getElementById('s-slug')?.addEventListener('input', () => {
+  document.getElementById('s-slug')._touched = true;
+});
+
+async function handleSignup(e) {
+  e.preventDefault();
+  const btn = document.getElementById('signup-btn');
+  const errEl = document.getElementById('signup-error');
+  const sucEl = document.getElementById('signup-success');
+
+  errEl.style.display = 'none';
+  sucEl.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Creating account...';
+
+  const org_name = document.getElementById('s-orgname').value.trim();
+  const slug = document.getElementById('s-slug').value.trim();
+  const email = document.getElementById('s-email').value.trim();
+  const password = document.getElementById('s-password').value;
+
+  try {
+    const res = await fetch('https://api.traceoperations.com/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ org_name, slug, email, password })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || 'Registration failed');
+    }
+
+    sucEl.style.display = 'block';
+setTimeout(() => {
+  const params = new URLSearchParams({
+    token: data.token,
+    refreshToken: data.refreshToken,
+    user: JSON.stringify(data.user),
+    org: JSON.stringify(data.org)
+  });
+  window.location.href = `https://app.traceoperations.com/auth-callback?${params.toString()}`;
+}, 1500);
+
+  } catch (err) {
+    errEl.textContent = err.message;
+    errEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Create Account →';
+  }
+}
+</script>
 
 const feedJobs = [
   { num:'#70921', desc:'Digital Short Run', dot:'var(--accent)', status:'● running', cls:'fs-run' },
