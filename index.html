@@ -813,11 +813,11 @@ footer{padding:28px 52px;border-top:1px solid var(--border);display:flex;align-i
         <form id="signup-form" onsubmit="handleSignup(event)">
           <div class="signup-field">
             <label>Shop Name</label>
-            <input id="s-orgname" type="text" placeholder="CT Commercial Paper" required />
+            <input id="s-orgname" type="text" placeholder="Your Company Name" required />
           </div>
           <div class="signup-field">
             <label>Shop ID <span class="signup-hint">used to log in (no spaces)</span></label>
-            <input id="s-slug" type="text" placeholder="ct-paper" required pattern="[a-z0-9\-]+" />
+            <input id="s-slug" type="text" placeholder="your-slug" required />
           </div>
           <div class="signup-field">
             <label>Email</label>
@@ -1259,16 +1259,17 @@ function selectPlan(plan) {
   });
 }
 
-// Auto-format slug from shop name
+let slugTouched = false;
+
 document.getElementById('s-orgname')?.addEventListener('input', (e) => {
-  const slugEl = document.getElementById('s-slug');
-  if (!slugEl._touched) {
-    slugEl.value = e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  if (!slugTouched) {
+    document.getElementById('s-slug').value = e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   }
 });
 
-document.getElementById('s-slug')?.addEventListener('input', () => {
-  document.getElementById('s-slug')._touched = true;
+document.getElementById('s-slug')?.addEventListener('input', (e) => {
+  slugTouched = true;
+  e.target.value = e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 });
 
 async function handleSignup(e) {
